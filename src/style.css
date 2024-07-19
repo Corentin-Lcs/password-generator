@@ -1,0 +1,318 @@
+@charset "UTF-8";
+
+@supports (outline: auto) {
+  *:focus-visible {
+    outline: 2px solid #000000;
+    outline: var(--focus-visible-border);
+    outline-offset: 4px;
+  }
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  src: url("./assets/Inter.ttf") format("truetype");
+}
+
+:root {
+	--font-family: "Inter", sans-serif;
+  --h1-font-size: 52px;
+  --h1-font-size-media-query: 32px;
+  --h2-font-size: 20px;
+  --black-font: 900;
+  --extra-bold-font: 800;
+  --bold-font: 700;
+  --semi-bold-font: 600;
+  --medium-font: 500;
+  --regular-font: 400;
+  --light-font: 300;
+  --focus-visible-border: 2px solid #000000;
+  --black-border-color: 1px solid #0000001a;
+  --input-transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  --input-box-shadow: 0 0 0 .25rem #0000001a;
+  --light-white-color: #f9f9f9;
+  --dark-white-color: #cccccc;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --green-color: #32bd52;
+  --blue-gradient-color: #3d68ff;
+  --purple-gradient-color: #8845ff;
+  --gradient-background: linear-gradient(92deg, var(--blue-gradient-color) 0, var(--purple-gradient-color) 100%);
+}
+
+body {
+	background: linear-gradient(92deg,#3d68ff 0,#8845ff 100%);
+  background: var(--gradient-background);
+	color: #000000;
+  color: var(--black-color);
+	font-family: "Inter", sans-serif;
+	font-family: var(--font-family);
+  font-weight: 500;
+  font-weight: var(--medium-font);
+}
+
+h1 {
+  font-size: 52px;
+  font-size: var(--h1-font-size);
+  font-weight: 800;
+  font-weight: var(--extra-bold-font);
+}
+
+h2 {
+  font-size: 20px;
+  font-size: var(--h2-font-size);
+  font-weight: 800;
+  font-weight: var(--extra-bold-font);
+}
+
+.app {
+	align-items: center;
+  display: flex;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.app-card {
+	background-color: #ffffff;
+  background-color: var(--white-color);
+	border: 1px solid #0000001a;
+  border: var(--black-border-color);
+	border-radius: 16px;
+	padding: 50px;
+	position: relative;
+}
+
+.app-title {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(92deg,#3d68ff 0,#8845ff 100%);
+  background: var(--gradient-background);
+  background-clip: text;
+  margin-bottom: 25px;
+  text-align: center;  
+}
+
+.password-length,
+.password-options {
+	margin: 25px 0;
+}
+
+.form-card {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+	appearance: none;
+  background-color: #f9f9f9;
+  background-color: var(--light-white-color);
+  border: 1px solid #0000001a;
+  border: var(--black-border-color);
+	border-radius: 20px;
+  color: #000000;
+  color: var(--black-color);
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  font-weight: var(--regular-font);
+  line-height: 1.7;
+  margin-bottom: 16px;
+	padding: 6px 12px;
+	transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  transition: var(--input-transition);
+  width: 100%;
+}
+
+.form-card:focus {
+	border-color: #f9f9f9;
+  border-color: var(--light-white-color);
+  box-shadow: 0 0 0 .25rem #0000001a;
+  box-shadow: var(--input-box-shadow);
+  outline: 0;
+}
+
+.range-input {
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type=range]::-moz-range-thumb {
+  background-color: #000000;
+  background-color: var(--black-color);
+  border: none;
+  border-radius: 16px;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+input[type=range]::-moz-range-track {
+  background: linear-gradient(92deg,#3d68ff 0,#8845ff 100%);
+  background: var(--gradient-background);
+}
+
+.option {
+  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+label {
+  cursor: pointer;
+}
+
+.switch {
+  display: inline-block;
+  height: 20px;
+	position: relative;
+	width: 34px;
+}
+
+.switch input {
+  height: 0;
+	opacity: 0;
+	width: 0; 
+}
+
+.slider {
+  background-color: #cccccc;
+  background-color: var(--dark-white-color);
+  border-radius: 34px;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+	position: absolute;
+  right: 0;
+  transition: 0.4s;
+	top: 0;
+}
+
+.slider:before {
+  background-color: #ffffff;
+  background-color: var(--white-color);
+  border-radius: 16px;
+  bottom: 4px;
+  content: "";
+  height: 12px;
+  left: 4px;
+	position: absolute;
+	transition: 0.4s;
+	width: 12px;
+}
+
+input:checked + .slider {
+	background-image: linear-gradient(92deg,#3d68ff 0,#8845ff 100%);
+  background-image: var(--gradient-background);
+}
+
+input:checked + .slider:before {
+	transform: translateX(14px);
+}
+
+.generate-button,
+.copy-button {
+  background-color: #000000;
+  background-color: var(--black-color);
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  color: var(--white-color);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  font-weight: var(--medium-font);
+  font-family: "Inter", sans-serif;
+  font-family: var(--font-family);
+  height: 40px;
+  line-height: 38px;
+  overflow: hidden;
+  padding: 0 20px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.generate-button:after,
+.copy-button:after {
+  background: linear-gradient(92deg, #3d68ff 0%, #8845ff 100%);
+  background: var(--gradient-background);
+  border-radius: 20px;
+  bottom: 0;
+  content: "";
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 0.5s;
+  z-index: -1;
+}
+
+.generate-button:hover:after,
+.copy-button:hover:after {
+  opacity: 1;
+}
+
+.generate-button {
+	margin: 20px 0;
+}
+
+i {
+	margin-right: 8px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-animation {
+  animation: spin 0.8s linear;
+}
+
+.green-icon {
+  color: #32bd52;
+  color: var(--green-color);
+}
+
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+@media only screen and (max-width: 1399px) {
+  h1 {
+    font-size: 32px;
+    font-size: var(--h1-font-size-media-query);
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
